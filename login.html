@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certity</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="nav_bar">
+        <div id="heading">Major Project </div>
+        <div id = "lbut">
+            <a href = "index.html"><button id="log_in">BACK</button></a>
+        </div>      
+    </div>
+    <div id="main">
+        <p id="data"></p>
+        <div id="file_area" onclick="document.getElementById('myfile').click()">
+            <input type='file' id="myfile">
+            <div id="text_cert_upload">
+                VERIFY
+            </div>
+        </div>
+        <div id="buttons_main">
+            <div id="viewBdiv">
+                <button id="viewB" onclick="get_data()">View</button>
+            </div>
+            <div id="clearBdiv">
+                <button id="clearB" onclick="clean_up()">Clear</button>
+            </div>
+            
+        </div>
+            
+        
+    </div>
+    <div id="outer">
+        <p id="balance" style="font-size: larger;"></p>
+    </div>
+</body>
+</html>
+
+
+

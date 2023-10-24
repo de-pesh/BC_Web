@@ -1,0 +1,16 @@
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+    <script>
+       
+        $(document).ready(function(){
+            web3 = new Web3(web3.currentProvider);
+            var contract;
+            var address = "0x3e3B687d7D3f65F3279446c710852830DF4eE7F4";
+            var abi = 
+            contract = new web3.eth.Contract(abi, address);
+            contract.methods.getbalance().call().then(function(bal){
+                $('#balance').html(bal);
+            })
+
+        })
+    </script>
