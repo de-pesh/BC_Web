@@ -85,11 +85,11 @@ button:hover {
     border: #358dff;
     border-style:solid;
     border-width: 1px;
-    height: 100px;
+    height: 257px;
     border-radius: 10px;
     align-items: center;
     text-align: center;
-    line-height: 100px;
+    line-height: 250px;
 }
 
 #myfileArea{
@@ -112,19 +112,49 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
     width: 100%;
 
 }
 
-#clearBdiv{
-    display: flex;
-    justify-content: center;
+
+
+#loginarea{
+    display:list-item;
+    width: auto;
+    background-color: #1554a7;
+    border: #358dff;
+    border-style:solid;
+    border-width: 1px;
+    height: auto;
+    border-radius: 10px;
     align-items: center;
-    flex-grow: 1;
+    text-align: left;
+    line-height: 50px;
+    padding: 3dvh;
+
+    list-style-type: none;
+}
+
+#userid{
+    width: 100%;
+    border-radius: 10px;
+    height: 30px;
+}
+
+#pass{
+    width: 100%;
+    border-radius: 10px;
+    height: 30px;
 }
 
 
 
+#Logindiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
 
-
-
+}

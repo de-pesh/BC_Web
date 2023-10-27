@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certity</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body>
     <div id="nav_bar">
@@ -14,21 +14,17 @@
         </div>      
     </div>
     <div id="main">
-        <p id="data"></p>
-        <div id="file_area" onclick="document.getElementById('myfile').click()">
-            <input type='file' id="myfile">
-            <div id="text_cert_upload">
-                VERIFY
-            </div>
+        <h1 id="welcometxt" style="color: white; font-family:Arial, Helvetica, sans-serif; padding:10px">Welcome </h1>
+        <div id="loginarea">
+            <label for="userid" style="color: white; font-family:Arial, Helvetica, sans-serif">&nbsp;User Id &nbsp;</label>
+            <input type="text" id="userid">
+            <label for="" style="color: white; font-family:Arial, Helvetica, sans-serif">Password</label>
+            <input type="password" id="pass">
         </div>
         <div id="buttons_main">
-            <div id="viewBdiv">
-                <button id="viewB" onclick="get_data()">View</button>
-            </div>
-            <div id="clearBdiv">
-                <button id="clearB" onclick="clean_up()">Clear</button>
-            </div>
-            
+            <div id="Logindiv">
+                <a href = "admin.html"> <button id="viewB">Log In</button></a>
+            </div>      
         </div>
             
         

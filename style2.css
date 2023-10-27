@@ -2,23 +2,33 @@ html{
     min-height: 100%;
 }
 body{
-    background-image: linear-gradient(100deg, #D4F1F4, #189AB4); 
+    background-image: linear-gradient(100deg, #D4F1F4, #20c7e9); 
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    margin: 0;
+    margin: 0;    
 }
 
 #main{
-    margin: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
     padding: 2%;
-    background-color: #ff9696;
+    background-color: #1199d4;
     border-radius: 20px;
-    box-shadow: 10px 10px 8px 10px #888888;
+    box-shadow: 10px 10px 8px  #3a3a3a;
     align-items: center;
 }
-
-#log_in{
+@media all and (max-width: 600px) {
+    #main {
+        margin-left:10%;
+        margin-right: 10%;
+        margin-top: 30%;
+    }
+  }
+/* For all buttons */
+button{
     display: flex;
     float: right;
     border-radius: 20px;
@@ -26,21 +36,21 @@ body{
     padding-right: 40px;
     padding-top: 10px;
     padding-bottom: 10px;
-    background: #189AB4;
+    background: #1ad9ff;
     box-shadow: 0 5px 5px 0 #0000005b,0 17px 50px 0 rgba(0, 0, 0, 0.34);
-    color: white;
+    color: black;
     border: white;
     overflow: hidden;
     cursor: pointer;
     position: relative;
 }
-#log_in:hover {
-    box-shadow: 0 5px 5px 0 #0000005b,0 17px 50px 0 rgba(0, 0, 0, 0.34);
-    background-color: #75E6DA;
+button:hover {
+    box-shadow: 0 10px 10px 0 #0000005b,0 17px 50px 0 rgba(0, 0, 0, 0.34);
+    background-color: #58e3ff;
     color: black;
   }
 
-
+/* This is for nav bar */
 #nav_bar{
     display: flex;
     background-color: rgba(20, 20, 20, 0.5);
@@ -68,16 +78,66 @@ body{
 }
 
 
+#buttons_main{
+    display: flex;
+    padding: 20px;
+}
+
+#viewBdiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+
+}
 
 
 
+#loginarea{
+    display:list-item;
+    width: auto;
+    background-color: #1554a7;
+    border: #358dff;
+    border-style:solid;
+    border-width: 1px;
+    height: auto;
+    border-radius: 10px;
+    align-items: center;
+    text-align: left;
+    line-height: 50px;
+    padding: 3dvh;
+
+    list-style-type: none;
+}
+
+#userid{
+    width: 94%;
+    border-radius: 10px;
+    height: 30px;
+    font-size:large;
+    color: rgb(53, 53, 53);
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+#pass{
+    width: 94%;
+    border-radius: 10px;
+    height: 30px;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: xx-large;
+    color: rgb(0, 29, 146);
+}
 
 
 
+#Logindiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
 
-
-
-
-
-
-
+}
