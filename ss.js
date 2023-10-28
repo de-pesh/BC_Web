@@ -1,7 +1,5 @@
 function get_data() {
     $(document).ready(function() {
-        const spawner = require('child_process').spawn;
-        const python_process = spawner('python','./hashing.py',file)
 
         var output = $('#balance');
         web3 = new Web3(web3.currentProvider);
@@ -39,7 +37,7 @@ function get_data() {
     
         contract = new web3.eth.Contract(abi, address);
         contract.methods.getCertificate().call().then(function(bal){
-            output.text("refresh: " + bal)
+            output.text("The document is : " + bal)
         });
     });
 }
