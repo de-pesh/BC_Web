@@ -11,7 +11,7 @@ body{
 
 #main{
     margin-top: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     margin-left: 20%;
     margin-right: 20%;
     padding: 2%;
@@ -89,11 +89,14 @@ button:hover {
     border-radius: 10px;
     align-items: center;
     text-align: center;
-    line-height: 250px;
+    line-height: 50px;
 }
 
-#myfileArea{
-    display: none;
+#cert_id{
+    margin-top: 90px;
+    padding: 10px;
+    font-size: large;
+    border-radius: 10px;
 }
 
 
@@ -157,3 +160,26 @@ button:hover {
     width: 100%;
 
 }
+
+#balance{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    height: auto;
+    font-size: x-large;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding: 1%;
+    border-radius: 10px;
+}
+@media all and (max-width: 600px) {
+    #balance {
+        margin-left:10%;
+        margin-right: 10%;
+    }
+  }

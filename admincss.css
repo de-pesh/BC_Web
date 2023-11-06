@@ -36,12 +36,14 @@ button{
     padding-right: 40px;
     padding-top: 10px;
     padding-bottom: 10px;
+    text-align: center;
     background: #1ad9ff;
     box-shadow: 0 5px 5px 0 #0000005b,0 17px 50px 0 rgba(0, 0, 0, 0.34);
     color: black;
     border: white;
     overflow: hidden;
-    cursor: pointer;
+    /* cursor: pointer; */
+    text-align: center;
     position: relative;
 }
 button:hover {
@@ -96,25 +98,17 @@ button:hover {
 #add_cert_but{
     width: 100%;
     margin-bottom: 40px;
+    font-weight:bolder;
 }
+
 #view_cert_but{
     width: 100%;
     margin-bottom: 40px;
+    font-weight:bold;
 }
 #some_but{
     width: 100%;
+    font-weight:bold;
+    align-self: center;
 }
 
-#buttons_main{
-    display: flex;
-    padding: 20px;
-}
-
-#viewBdiv{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    width: 100%;
-
-}
