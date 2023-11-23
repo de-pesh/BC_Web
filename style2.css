@@ -115,21 +115,23 @@ button:hover {
 #userid{
     width: 94%;
     border-radius: 10px;
-    height: 30px;
+    height: 40px;
     font-size:large;
     color: rgb(53, 53, 53);
-    padding-left: 3%;
-    padding-right: 3%;
+    padding-left: 1%;
+    padding-right: 1%;
+    text-align: center;
 }
 
 #pass{
     width: 94%;
     border-radius: 10px;
-    height: 30px;
-    padding-left: 3%;
-    padding-right: 3%;
+    height: 40px;
+    padding-left: 1%;
+    padding-right: 1%;
     font-size: xx-large;
     color: rgb(0, 29, 146);
+    text-align: center;
 }
 
 
