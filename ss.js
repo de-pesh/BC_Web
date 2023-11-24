@@ -76,6 +76,57 @@ var abi = [
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "authorizedAddresses",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"name": "certificates",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "string",
 				"name": "certificate",
 				"type": "string"
@@ -93,7 +144,16 @@ var abi = [
 		"type": "function"
 	}
 ];
-var address = '0xAB5aCCD8Df52ba59894f8ed4faEe638cf2e96bE5';
+var address = '0x58954Ec5695b2Ef53FB7F964f9C6D5A3440b2281';
+
+
+function toHex(str) {
+    var result = '';
+    for (var i=0; i<str.length; i++) {
+      result += str.charCodeAt(i).toString(16);
+    }
+    return result;
+  }
 
 // function get_data() {
 //     $(document).ready(function () {
@@ -224,3 +284,44 @@ async function AddCertificate() {
 
     }
 }
+
+
+
+
+
+
+
+
+
+async function AddAuthority() {
+    if (window.ethereum) {
+        var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        var auth = document.getElementById("cert_id").value;
+        var output = document.getElementById("balance");
+        var web3 = new Web3(window.ethereum);
+        var contract = new web3.eth.Contract(abi, address);
+
+            await contract.methods.changeAuthorization(auth, true).send({ from: accounts[0] }).then(function () {
+                output.textContent = "The Authority is Updated";
+                output.style.background = "rgba(136, 255, 0, 0.5)";
+                output.style.color = "rgb(33, 33, 33) ";
+                output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+            }).catch(function (error) {
+                output.textContent = error;
+                output.style.background = "rgb(255, 36, 36)";
+                output.style.color = "white ";
+                output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+            });
+
+
+    }
+    else {
+        var output = document.getElementById("balance");
+        output.textContent = "Please check metamask";
+        output.style.background = "rgba(20, 20, 20, 0.5)";
+        output.style.color = "rgb(255, 223, 223)";
+        output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+
+    }
+}
+

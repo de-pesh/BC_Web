@@ -8,17 +8,6 @@ body{
     background-size: cover;
     margin: 0;    
 }
-img{
-    height: 200px;
-    width: 200px;
-}
-@media all and (max-width: 750px) {
-    img {
-        height: 100px;
-        width: 100px;
-        margin-top: 50px;
-    }
-  }
 
 #main{
     margin-top: 10%;
@@ -26,7 +15,6 @@ img{
     margin-left: 20%;
     margin-right: 20%;
     padding: 2%;
-    height: 467px;
     background-color: #1199d4;
     border-radius: 20px;
     box-shadow: 10px 10px 8px  #3a3a3a;
@@ -93,12 +81,11 @@ button:hover {
 #file_area{
     display: block;
     width: 100%;
-    padding-top: 30px;
     background-color: #1554a7;
     border: #358dff;
     border-style:solid;
     border-width: 1px;
-    height: 270px;
+    height: 257px;
     border-radius: 10px;
     align-items: center;
     text-align: center;
@@ -110,7 +97,13 @@ button:hover {
     padding: 10px;
     font-size: large;
     border-radius: 10px;
+    width: 450px;
 }
+@media all and (max-width: 850px) {
+    #cert_id {
+        width: 250px;
+    }
+  }
 
 
 
@@ -119,7 +112,19 @@ button:hover {
     font-weight: 200;
     color: white;
 }
+#buttons_main{
+    display: flex;
+    padding: 20px;
+}
 
+#viewBdiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+
+}
 
 
 #loginarea{
@@ -139,6 +144,19 @@ button:hover {
     list-style-type: none;
 }
 
+#userid{
+    width: 100%;
+    border-radius: 10px;
+    height: 30px;
+}
+
+#pass{
+    width: 100%;
+    border-radius: 10px;
+    height: 30px;
+}
+
+
 
 #Logindiv{
     display: flex;
@@ -149,25 +167,25 @@ button:hover {
 
 }
 
+#balance{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    height: auto;
+    font-size: x-large;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding: 1%;
+    border-radius: 10px;
+}
 @media all and (max-width: 600px) {
     #balance {
         margin-left:10%;
         margin-right: 10%;
-        text-align: center;
     }
   }
-
-  #start_page{
-    width: 50%;
-    float: left;
-    font-family:Arial, Helvetica, sans-serif;
-  }
-  
-  #start_text{
-    width: 50%;
-    float: left;
-    font-family:Arial, Helvetica, sans-serif;
-    color: white;
-    font-size: x-large;
-  }
- 
