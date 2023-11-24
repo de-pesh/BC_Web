@@ -93,14 +93,29 @@ button:hover {
 }
 
 #cert_id{
-    margin-top: 90px;
+    margin-top: 40px;
     padding: 10px;
     font-size: large;
     border-radius: 10px;
+    text-align: center;
     width: 450px;
 }
 @media all and (max-width: 850px) {
     #cert_id {
+        width: 250px;
+    }
+  }
+
+  #name_id{
+    margin-top: 10px;
+    padding: 10px;
+    font-size: large;
+    border-radius: 10px;
+    width: 450px;
+    text-align: center;
+}
+@media all and (max-width: 850px) {
+    #name_id {
         width: 250px;
     }
   }

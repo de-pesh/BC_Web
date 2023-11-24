@@ -287,22 +287,21 @@ async function AddCertificate() {
 
 
 
-
-
-
-
-
-
 async function AddAuthority() {
     if (window.ethereum) {
         var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-        var auth = document.getElementById("cert_id").value;
+        var certificate = document.getElementById("cert_id").value;
         var output = document.getElementById("balance");
         var web3 = new Web3(window.ethereum);
         var contract = new web3.eth.Contract(abi, address);
-
-            await contract.methods.changeAuthorization(auth, true).send({ from: accounts[0] }).then(function () {
-                output.textContent = "The Authority is Updated";
+        var status = false;
+        await contract.methods.verifyAuthority(certificate).call().then(function (result) {
+            status = result;
+        });
+        console.log(status)
+        if (status == false) {
+            await contract.methods.addCertificate(certificate, true).send({ from: accounts[0] }).then(function () {
+                output.textContent = "Authority is updated";
                 output.style.background = "rgba(136, 255, 0, 0.5)";
                 output.style.color = "rgb(33, 33, 33) ";
                 output.style.boxShadow = "10px 10px 8px  #3a3a3a";
@@ -312,8 +311,12 @@ async function AddAuthority() {
                 output.style.color = "white ";
                 output.style.boxShadow = "10px 10px 8px  #3a3a3a";
             });
-
-
+        } else {
+            output.textContent = "Already authorised";
+            output.style.background = "rgb(255, 36, 36)";
+            output.style.color = "white ";
+            output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+        }
     }
     else {
         var output = document.getElementById("balance");
@@ -325,3 +328,47 @@ async function AddAuthority() {
     }
 }
 
+
+
+
+
+async function RemoveAuthority() {
+    if (window.ethereum) {
+        var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        var authority = document.getElementById("cert_id").value;
+        var output = document.getElementById("balance");
+        var web3 = new Web3(window.ethereum);
+        var contract = new web3.eth.Contract(abi, address);
+        var status = false;
+        await contract.methods.verifyAuthority(authority).call().then(function (result) {
+            status = result;
+        });
+        console.log(status)
+        if (status == true) {
+            await contract.methods.addCertificate(authority, false).send({ from: accounts[0] }).then(function () {
+                output.textContent = "Authority Removed";
+                output.style.background = "rgba(136, 255, 0, 0.5)";
+                output.style.color = "rgb(33, 33, 33) ";
+                output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+            }).catch(function (error) {
+                output.textContent = error;
+                output.style.background = "rgb(255, 36, 36)";
+                output.style.color = "white ";
+                output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+            });
+        } else {
+            output.textContent = "Given Address has no Authority";
+            output.style.background = "rgb(255, 36, 36)";
+            output.style.color = "white ";
+            output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+        }
+    }
+    else {
+        var output = document.getElementById("balance");
+        output.textContent = "Please check metamask";
+        output.style.background = "rgba(20, 20, 20, 0.5)";
+        output.style.color = "rgb(255, 223, 223)";
+        output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+
+    }
+}
