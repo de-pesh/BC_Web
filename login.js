@@ -182,18 +182,11 @@ async function Check() {
         var id = document.getElementById("userid").value;
         var pass = document.getElementById("pass").value;
         if(id=="admin" && pass == "admin"){
-
-            // output.style.display = "none";
-            // var load = document.getElementById("loading");
-            // load.style.display = "flex";
-
             if (window.ethereum) {
                 var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
                 var web3 = new Web3(window.ethereum);
                 var contract = new web3.eth.Contract(abi, address);
                 var status = false;
-                console.log(accounts)
-                const input = prompt("What's your name?");
                 await contract.methods.verifyAuthority(accounts[0]).call().then(function (result) {
                     status = result;
                 });
