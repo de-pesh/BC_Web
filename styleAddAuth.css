@@ -11,7 +11,7 @@ body{
 
 #main{
     margin-top: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     margin-left: 20%;
     margin-right: 20%;
     padding: 2%;
@@ -36,14 +36,12 @@ button{
     padding-right: 40px;
     padding-top: 10px;
     padding-bottom: 10px;
-    text-align: center;
     background: #1ad9ff;
     box-shadow: 0 5px 5px 0 #0000005b,0 17px 50px 0 rgba(0, 0, 0, 0.34);
     color: black;
     border: white;
     overflow: hidden;
-    /* cursor: pointer; */
-    text-align: center;
+    cursor: pointer;
     position: relative;
 }
 button:hover {
@@ -82,34 +80,128 @@ button:hover {
 /* Inserting file Area */
 #file_area{
     display: block;
-    padding: 50px;
-    width: auto;
-    height: 253px;
+    width: 100%;
     background-color: #1554a7;
     border: #358dff;
     border-style:solid;
     border-width: 1px;
+    height: 257px;
     border-radius: 10px;
     align-items: center;
     text-align: center;
-    line-height: 20px;
+    line-height: 50px;
 }
 
-#add_cert_but{
-    width: 100%;
-    margin-bottom: 50px;
-    font-size:large;
+#cert_id{
+    /* margin-top: 40px; */
+    margin-top: 100px;
+    padding: 10px;
+    font-size: large;
+    border-radius: 10px;
+    text-align: center;
+    width: 450px;
+}
+@media all and (max-width: 850px) {
+    #cert_id {
+        width: 250px;
+    }
+  }
+
+  #name_id{
+    margin-top: 10px;
+    padding: 10px;
+    font-size: large;
+    border-radius: 10px;
+    width: 450px;
+    text-align: center;
+}
+@media all and (max-width: 850px) {
+    #name_id {
+        width: 250px;
+    }
+  }
+
+
+
+#text_cert_upload{
+    font-family: sans-serif;
+    font-weight: 200;
+    color: white;
+}
+#buttons_main{
+    display: flex;
+    padding: 20px;
 }
 
-#view_cert_but{
+#viewBdiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
     width: 100%;
-    margin-bottom: 50px;
-    font-size:large;
-}
-#some_but{
-    width: 100%;
-    margin-bottom: 50px;
-    font-size:large;
-    align-self: center;
+
 }
 
+
+#loginarea{
+    display:list-item;
+    width: auto;
+    background-color: #1554a7;
+    border: #358dff;
+    border-style:solid;
+    border-width: 1px;
+    height: auto;
+    border-radius: 10px;
+    align-items: center;
+    text-align: left;
+    line-height: 50px;
+    padding: 3dvh;
+
+    list-style-type: none;
+}
+
+#userid{
+    width: 100%;
+    border-radius: 10px;
+    height: 30px;
+}
+
+#pass{
+    width: 100%;
+    border-radius: 10px;
+    height: 30px;
+}
+
+
+
+#Logindiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+
+}
+
+#balance{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    height: auto;
+    font-size: x-large;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding: 1%;
+    border-radius: 10px;
+}
+@media all and (max-width: 600px) {
+    #balance {
+        margin-left:10%;
+        margin-right: 10%;
+    }
+  }

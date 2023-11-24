@@ -8,13 +8,25 @@ body{
     background-size: cover;
     margin: 0;    
 }
+img{
+    height: 200px;
+    width: 200px;
+}
+@media all and (max-width: 750px) {
+    img {
+        height: 100px;
+        width: 100px;
+        margin-top: 50px;
+    }
+  }
 
 #main{
     margin-top: 10%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     margin-left: 20%;
     margin-right: 20%;
     padding: 2%;
+    height: 467px;
     background-color: #1199d4;
     border-radius: 20px;
     box-shadow: 10px 10px 8px  #3a3a3a;
@@ -36,14 +48,12 @@ button{
     padding-right: 40px;
     padding-top: 10px;
     padding-bottom: 10px;
-    text-align: center;
     background: #1ad9ff;
     box-shadow: 0 5px 5px 0 #0000005b,0 17px 50px 0 rgba(0, 0, 0, 0.34);
     color: black;
     border: white;
     overflow: hidden;
-    /* cursor: pointer; */
-    text-align: center;
+    cursor: pointer;
     position: relative;
 }
 button:hover {
@@ -82,34 +92,82 @@ button:hover {
 /* Inserting file Area */
 #file_area{
     display: block;
-    padding: 50px;
-    width: auto;
-    height: 253px;
+    width: 100%;
+    padding-top: 30px;
     background-color: #1554a7;
     border: #358dff;
     border-style:solid;
     border-width: 1px;
+    height: 270px;
     border-radius: 10px;
     align-items: center;
     text-align: center;
-    line-height: 20px;
+    line-height: 50px;
 }
 
-#add_cert_but{
-    width: 100%;
-    margin-bottom: 50px;
-    font-size:large;
+#cert_id{
+    margin-top: 90px;
+    padding: 10px;
+    font-size: large;
+    border-radius: 10px;
 }
 
-#view_cert_but{
-    width: 100%;
-    margin-bottom: 50px;
-    font-size:large;
-}
-#some_but{
-    width: 100%;
-    margin-bottom: 50px;
-    font-size:large;
-    align-self: center;
+
+
+#text_cert_upload{
+    font-family: sans-serif;
+    font-weight: 200;
+    color: white;
 }
 
+
+
+#loginarea{
+    display:list-item;
+    width: auto;
+    background-color: #1554a7;
+    border: #358dff;
+    border-style:solid;
+    border-width: 1px;
+    height: auto;
+    border-radius: 10px;
+    align-items: center;
+    text-align: left;
+    line-height: 50px;
+    padding: 3dvh;
+
+    list-style-type: none;
+}
+
+
+#Logindiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+
+}
+
+@media all and (max-width: 600px) {
+    #balance {
+        margin-left:10%;
+        margin-right: 10%;
+        text-align: center;
+    }
+  }
+
+  #start_page{
+    width: 50%;
+    float: left;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+  
+  #start_text{
+    width: 50%;
+    float: left;
+    font-family:Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: x-large;
+  }
+ 
