@@ -177,6 +177,12 @@ var abi = [
 var address = '0x788Ef623CB2490860a76F8f58CE7cD5a9B294f74';
 
 
+function removeDuplicates(arr) {
+    return arr.filter((item,
+        index) => arr.indexOf(item) === index);
+}
+
+
 
 async function AuthorityList() {
   
@@ -191,11 +197,8 @@ async function AuthorityList() {
         await contract.methods.getKeys().call().then(function (result) {
             status = result;
         });
-        console.log(status)
-        for(i in status){
-            console.log(status[i])
-        }
-        console.log(typeof(status[0]))
+        status = removeDuplicates(status);
+		console.log(status);
         var names = [];
         for(i in status){
             await contract.methods.getName(status[i]).call().then(function (result) {
@@ -234,32 +237,6 @@ async function AuthorityList() {
             myDiv.appendChild(button2);
             myDiv.appendChild(button);;
         }
-            
-
-        // if (status == false) {
-        //     await contract.methods.addCertificate(certificate).send({ from: accounts[0] }).then(function () {
-
-        //         output.style.display = "flex";
-        //         output.textContent = "The document is Added";
-        //         output.style.background = "rgba(136, 255, 0, 0.5)";
-        //         output.style.color = "rgb(33, 33, 33) ";
-        //         output.style.boxShadow = "10px 10px 8px  #3a3a3a";
-        //     }).catch(function (error) {
-     
-        //         output.style.display = "flex";
-        //         output.textContent = error;
-        //         output.style.background = "rgb(255, 36, 36)";
-        //         output.style.color = "white ";
-        //         output.style.boxShadow = "10px 10px 8px  #3a3a3a";
-        //     });
-        // } else {
-     
-        //     output.style.display = "flex";
-        //     output.textContent = "The document already exists";
-        //     output.style.background = "rgb(255, 36, 36)";
-        //     output.style.color = "white ";
-        //     output.style.boxShadow = "10px 10px 8px  #3a3a3a";
-        // }
     }
     else {
         output.style.display = "flex";

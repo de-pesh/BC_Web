@@ -239,6 +239,18 @@ async function AddCertificate() {
         var certificate = document.getElementById("cert_id").value;
         var web3 = new Web3(window.ethereum);
         var contract = new web3.eth.Contract(abi, address);
+        var validUser = false;
+        await contract.methods.verifyAuthority(accounts[0]).call().then(function (result) {
+            validUser = result;
+        });
+        if(validUser == false){
+            load.style.display = "none";
+                output.style.display = "flex";
+                output.textContent = "You are not authorised for this action";
+                output.style.background = "rgb(255, 36, 36)";
+                output.style.color = "white ";
+                output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+        } else {
         var status = false;
         await contract.methods.verifyCertificate(certificate).call().then(function (result) {
             status = result;
@@ -253,9 +265,10 @@ async function AddCertificate() {
                 output.style.color = "rgb(33, 33, 33) ";
                 output.style.boxShadow = "10px 10px 8px  #3a3a3a";
             }).catch(function (error) {
+                
                 load.style.display = "none";
                 output.style.display = "flex";
-                output.textContent = error;
+                output.textContent = "Transaction Failed";
                 output.style.background = "rgb(255, 36, 36)";
                 output.style.color = "white ";
                 output.style.boxShadow = "10px 10px 8px  #3a3a3a";
@@ -269,6 +282,7 @@ async function AddCertificate() {
             output.style.boxShadow = "10px 10px 8px  #3a3a3a";
         }
     }
+}
     else {
         load.style.display = "none";
         output.style.display = "flex";

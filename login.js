@@ -197,7 +197,10 @@ async function Check() {
                 }
             }
             else {
-                window.location.href = "/MetaError.html"; 
+                output.textContent = "No accounts Detected";
+            	output.style.background = "rgb(255, 36, 36)";
+            	output.style.color = "white ";
+            	output.style.boxShadow = "10px 10px 8px  #3a3a3a"; 
             }
             
         } else {
