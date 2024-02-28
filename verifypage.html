@@ -4,25 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certity</title>
-    <link rel="stylesheet" href="styleAddAuth.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="nav_bar">
         <div id="heading">Major Project </div>
         <div id = "lbut">
-            <a href = "admin.html"><button id="log_in">MENU</button></a>
+            <a href = "index.html"><button id="log_in">HOME</button></a>
         </div>      
     </div>
     <div id="main">
-        <h1 id="data" style="color: white; font-family:Arial, Helvetica, sans-serif; padding:10px">Add Authority</h1>
+        <h1 id="data" style="color: white; font-family:Arial, Helvetica, sans-serif; padding:10px">Verify Certificate</h1>
         <div id="file_area">
             <input type='text' id="cert_id">
             <div id="text_cert_upload">
-                    Authority Address
-            </div>
-            <input type='text' id="name_id">
-            <div id="text_cert_upload">
-                    Authority Name
+                    Certificate ID
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -30,14 +26,17 @@
         <script src="ss.js"></script>
         <div id="buttons_main">
             <div id="viewBdiv">
-                <button id="viewB" onclick="AddAuthority()">&nbsp;Add&nbsp;&nbsp;</button>
+                <button id="viewB" onclick="Verify()">Verify</button>
             </div>
-        </div>   
+        </div>
+            
+        
     </div>
     <div id = "outer2">
         <p id = "loading">  </p>
     </div>
     <div id="outer">
+        
         <p id="balance" >  </p>
     </div>
 </body>

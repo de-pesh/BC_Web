@@ -21,15 +21,20 @@
                     Certificate ID
             </div>
         </div>
+        <script type="module" src="bloomfilter.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
         <script src="ss.js"></script>
+        
         <div id="buttons_main">
             <div id="viewBdiv">
                 <button id="viewB" onclick="AddCertificate()">Add Certificate</button>
             </div>
         </div>
         
+    </div>
+    <div id = "outer2">
+        <p id = "loading">  </p>
     </div>
     <div id="outer">
         <p id="balance" >  </p>

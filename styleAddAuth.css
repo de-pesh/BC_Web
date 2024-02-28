@@ -93,8 +93,7 @@ button:hover {
 }
 
 #cert_id{
-    /* margin-top: 40px; */
-    margin-top: 100px;
+    margin-top: 40px;
     padding: 10px;
     font-size: large;
     border-radius: 10px;
@@ -205,3 +204,37 @@ button:hover {
         margin-right: 10%;
     }
   }
+
+
+  #loading{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+    font-size: x-large;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-left: 48%;
+    margin-right: 50%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding: 1%;
+    border: 6px solid;
+    border-color: blue transparent blue transparent;
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+}
+@media all and (max-width: 600px) {
+    #loading {
+        margin-left: 45%;
+    margin-right: 45%;
+    }
+  }
+
+  @keyframes spin{
+    to{
+        transform: rotate(360deg);
+    }
+  } 
