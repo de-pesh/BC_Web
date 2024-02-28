@@ -174,7 +174,7 @@ var abi = [
 		"type": "function"
 	}
 ];
-var address = '0x788Ef623CB2490860a76F8f58CE7cD5a9B294f74';
+var address = '0xF8068d84C549861e207f0680A2D79EF41C468C97';
 
 
 function removeDuplicates(arr) {

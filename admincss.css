@@ -131,6 +131,22 @@ button:hover {
     line-height: 20px;
 }
 
+#buttonArea{
+    display: block;
+    padding: 50px;
+    width: auto;
+    height: 253px;
+    overflow-y: scroll;
+    background-color: #1554a7;
+    border: #1554a7;
+    border-style:solid;
+    border-width: 10px;
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+    line-height: 20px;
+}
+
 
 
 #inv_user{
