@@ -424,3 +424,68 @@ async function RemoveAuthority() {
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//vote
+
+async function Verify() {
+    var output = document.getElementById("balance");
+    output.style.display = "none";
+
+    var load = document.getElementById("loading");
+    load.style.display = "flex";
+    const Web3 = require('web3');
+    // const web3 = new Web3(new Web3.providers.HttpProvider("https://linea-goerli.infura.io/v3/56fb7c211fa34b479ce1d44ff0653e54"));
+// var web3 = new Web3(new Web3.providers.HttpProvider("https://linea-goerli.infura.io/v3/56fb7c211fa34b479ce1d44ff0653e54"));
+if (window.ethereum) {
+    var certificate = document.getElementById("cert_id").value;
+    var web3 = new Web3(window.ethereum);
+    
+    var contract = new web3.eth.Contract(abi, address);
+    
+    await contract.methods.verifyCertificate(certificate).call().then(function (result) {
+        if (result == true) {
+            load.style.display = "none";
+            output.style.display = "flex";
+            output.textContent = "The document is Verified";
+            output.style.background = "rgba(136, 255, 0, 0.5)";
+            output.style.color = "rgb(33, 33, 33) ";
+            output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+        } else {
+            load.style.display = "none";
+            output.style.display = "flex";
+            output.textContent = "The document is not Verified";
+            output.style.background = "rgb(255, 36, 36)";
+            output.style.color = "white ";
+            output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+        }
+    }).catch(function (tx) {
+        load.style.display = "none";
+        output.style.display = "flex";
+        output.textContent = tx;
+        output.style.background = "rgb(255, 36, 36)";
+        output.style.color = "white ";
+        output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+    });
+    }
+    else {
+    load.style.display = "none";
+    output.style.display = "flex";
+    var output = document.getElementById("balance");
+    output.textContent = "Please check metamask";
+    output.style.background = "rgba(20, 20, 20, 0.5)";
+    output.style.color = "rgb(255, 223, 223)";
+    output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+
+}
+}

@@ -170,4 +170,9 @@ button:hover {
     color: white;
     font-size: x-large;
   }
+  @media all and (max-width: 600px) {
+    #start_text {
+        font-size: large;
+    }
+  }
  

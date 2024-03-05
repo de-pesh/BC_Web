@@ -132,7 +132,12 @@ button:hover {
     font-size: xx-large;
     color: rgb(0, 29, 146);
     text-align: center;
-}
+} 
+@media all and (max-width: 600px) {
+    #pass {
+        font-size: large;
+    }
+  }
 
 
 
