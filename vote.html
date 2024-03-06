@@ -6,7 +6,7 @@
     <title>Certity</title>
     <link rel="stylesheet" href="vcss.css" />
   </head>
-  <body>
+  <body onload="FetchVoteData()">
     <div id="nav_bar">
       <div id="heading">Major Project</div>
       <div id="lbut">
@@ -25,22 +25,23 @@
         Vote Institute
       </h1>
       <div id="file_area">
-        <div id="text_cert_upload_data"><b>0X0000000000000000000</b></div>
+        <div id="text_cert_upload_data_id"></div>
         <div id="text_cert_upload">Authority Address</div>
-        <div id="text_cert_upload_data"><b>CV RAMANAAAAA</b></div>
+        <div id="text_cert_upload_data"></div>
         <div id="text_cert_upload">Authority Name</div>
       </div>
       <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
       <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
       <script src="ss.js"></script>
+      
       <div id="buttons_main">
         <div id="viewBdiv">
-          <button id="viewB" onclick="AddAuthority()">
+          <button id="viewB" onclick="Vote(true)">
             &nbsp;Trust&nbsp;&nbsp;
           </button>
         </div>
         <div id="viewAdiv">
-          <button id="viewA" onclick="AddAuthority()">
+          <button id="viewA" onclick="Vote(false)">
             &nbsp;Doubt&nbsp;&nbsp;
           </button>
         </div>

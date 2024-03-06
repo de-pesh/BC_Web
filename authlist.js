@@ -1,180 +1,262 @@
 var abi = [
 	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "certificate",
-				"type": "string"
-			}
-		],
-		"name": "addCertificate",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+	  inputs: [
+		{
+		  internalType: "string",
+		  name: "certificate",
+		  type: "string",
+		},
+	  ],
+	  name: "addCertificate",
+	  outputs: [],
+	  stateMutability: "nonpayable",
+	  type: "function",
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
+	  inputs: [
+		{
+		  internalType: "string",
+		  name: "name",
+		  type: "string",
+		},
+	  ],
+	  stateMutability: "nonpayable",
+	  type: "constructor",
 	},
 	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "authorizedAddress",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "bool",
-				"name": "isAuthorized",
-				"type": "bool"
-			}
-		],
-		"name": "AuthorizationChanged",
-		"type": "event"
+	  anonymous: false,
+	  inputs: [
+		{
+		  indexed: true,
+		  internalType: "address",
+		  name: "authorizedAddress",
+		  type: "address",
+		},
+		{
+		  indexed: false,
+		  internalType: "bool",
+		  name: "isAuthorized",
+		  type: "bool",
+		},
+	  ],
+	  name: "AuthorizationChanged",
+	  type: "event",
 	},
 	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "issuer",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "bytes32",
-				"name": "certificateHash",
-				"type": "bytes32"
-			}
-		],
-		"name": "CertificateAdded",
-		"type": "event"
+	  anonymous: false,
+	  inputs: [
+		{
+		  indexed: true,
+		  internalType: "address",
+		  name: "issuer",
+		  type: "address",
+		},
+		{
+		  indexed: false,
+		  internalType: "bytes32",
+		  name: "certificateHash",
+		  type: "bytes32",
+		},
+	  ],
+	  name: "CertificateAdded",
+	  type: "event",
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "authorizedAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "bool",
-				"name": "isAuthorized",
-				"type": "bool"
-			},
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			}
-		],
-		"name": "changeAuthorization",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
+	  inputs: [
+		{
+		  internalType: "address",
+		  name: "authorizedAddress",
+		  type: "address",
+		},
+		{
+		  internalType: "bool",
+		  name: "isAuthorized",
+		  type: "bool",
+		},
+		{
+		  internalType: "string",
+		  name: "name",
+		  type: "string",
+		},
+	  ],
+	  name: "changeAuthorization",
+	  outputs: [],
+	  stateMutability: "nonpayable",
+	  type: "function",
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "a",
-				"type": "address"
-			}
-		],
-		"name": "getAuthorisedStatus",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
+	  inputs: [
+		{
+		  internalType: "address",
+		  name: "a",
+		  type: "address",
+		},
+		{
+		  internalType: "string",
+		  name: "n",
+		  type: "string",
+		},
+	  ],
+	  name: "ininElection",
+	  outputs: [
+		{
+		  internalType: "bool",
+		  name: "",
+		  type: "bool",
+		},
+	  ],
+	  stateMutability: "nonpayable",
+	  type: "function",
 	},
 	{
-		"inputs": [],
-		"name": "getKeys",
-		"outputs": [
-			{
-				"internalType": "address[]",
-				"name": "",
-				"type": "address[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
+	  inputs: [
+		{
+		  internalType: "bool",
+		  name: "x",
+		  type: "bool",
+		},
+	  ],
+	  name: "Vote",
+	  outputs: [
+		{
+		  internalType: "uint256",
+		  name: "",
+		  type: "uint256",
+		},
+	  ],
+	  stateMutability: "nonpayable",
+	  type: "function",
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "a",
-				"type": "address"
-			}
-		],
-		"name": "getName",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
+	  inputs: [],
+	  name: "getAddress",
+	  outputs: [
+		{
+		  internalType: "address",
+		  name: "",
+		  type: "address",
+		},
+	  ],
+	  stateMutability: "view",
+	  type: "function",
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "auth",
-				"type": "address"
-			}
-		],
-		"name": "verifyAuthority",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
+	  inputs: [
+		{
+		  internalType: "address",
+		  name: "a",
+		  type: "address",
+		},
+	  ],
+	  name: "getAuthorisedStatus",
+	  outputs: [
+		{
+		  internalType: "bool",
+		  name: "",
+		  type: "bool",
+		},
+	  ],
+	  stateMutability: "view",
+	  type: "function",
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "certificate",
-				"type": "string"
-			}
-		],
-		"name": "verifyCertificate",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	}
-];
-var address = '0xF8068d84C549861e207f0680A2D79EF41C468C97';
+	  inputs: [],
+	  name: "getKeys",
+	  outputs: [
+		{
+		  internalType: "address[]",
+		  name: "",
+		  type: "address[]",
+		},
+	  ],
+	  stateMutability: "view",
+	  type: "function",
+	},
+	{
+	  inputs: [],
+	  name: "getName",
+	  outputs: [
+		{
+		  internalType: "string",
+		  name: "",
+		  type: "string",
+		},
+	  ],
+	  stateMutability: "view",
+	  type: "function",
+	},
+	{
+	  inputs: [
+		{
+		  internalType: "address",
+		  name: "a",
+		  type: "address",
+		},
+	  ],
+	  name: "getName",
+	  outputs: [
+		{
+		  internalType: "string",
+		  name: "",
+		  type: "string",
+		},
+	  ],
+	  stateMutability: "view",
+	  type: "function",
+	},
+	{
+	  inputs: [],
+	  name: "getVotingStatus",
+	  outputs: [
+		{
+		  internalType: "bool",
+		  name: "",
+		  type: "bool",
+		},
+	  ],
+	  stateMutability: "view",
+	  type: "function",
+	},
+	{
+	  inputs: [
+		{
+		  internalType: "address",
+		  name: "auth",
+		  type: "address",
+		},
+	  ],
+	  name: "verifyAuthority",
+	  outputs: [
+		{
+		  internalType: "bool",
+		  name: "",
+		  type: "bool",
+		},
+	  ],
+	  stateMutability: "view",
+	  type: "function",
+	},
+	{
+	  inputs: [
+		{
+		  internalType: "string",
+		  name: "certificate",
+		  type: "string",
+		},
+	  ],
+	  name: "verifyCertificate",
+	  outputs: [
+		{
+		  internalType: "bool",
+		  name: "",
+		  type: "bool",
+		},
+	  ],
+	  stateMutability: "view",
+	  type: "function",
+	},
+  ];
+  var address = "0xB5287125969F23959344De10ebf42C6b83De8db0";
 
 
 function removeDuplicates(arr) {
@@ -218,7 +300,7 @@ async function AuthorityList() {
             let button2 = document.createElement('BUTTON');
  
             let text = document.createTextNode("ADDRESS: " +status[i]);
-            let text2 = document.createTextNode("NAME: " +names[i]);
+            let text2 = document.createTextNode("NAME: " +names[i].toUpperCase());
 
             button.style.width = "100%";
             button.style.marginBottom = "50px";
