@@ -622,8 +622,9 @@ async function Vote(v) {
           .then(function (result) {
             status = result;
           });
-      
-      if (status == 1) {
+      console.log(status)
+      console.log(typeof(status))
+      if (status == "1") {
         
             load.style.display = "none";
             output.style.display = "flex";
@@ -635,7 +636,7 @@ async function Vote(v) {
         load.style.display = "none";
         output.style.display = "flex";
         output.textContent = "Voting ends, Institute is not Trusted";
-        output.style.background = "rgb(255, 36, 36)";
+        output.style.background = "rgba(136, 255, 0, 0.5)";
         output.style.color = "white ";
         output.style.boxShadow = "10px 10px 8px  #3a3a3a";
       } else {
