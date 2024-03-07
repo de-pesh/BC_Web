@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certity</title>
     <link rel="stylesheet" href="admincss.css">
+    
 
 </head>
-<body>
+<body onload="GetName()">
+ 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
-        <script src="ss.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
+    <script src="ss.js"></script>
     <div id="nav_bar">
         <div id="heading">Major Project </div>
         <div id = "lbut">
@@ -18,11 +20,11 @@
         </div>      
     </div>
     <div id="main">
-        <h1 id="data" style="color: white; font-family:Arial, Helvetica, sans-serif; padding:10px">Welcome Admin</h1>
+        <h1 id="data" style="color: white; font-family:Arial, Helvetica, sans-serif; padding:10px">Welcome </h1>
         <div id="buttonArea">
                     <a href="add.html"><button id="add_cert_but">Add a Certificate</button></a>
                     <a href="authorities_list.html"><button id="view_cert_but">View all Institutes</button></a>
-                    <button id="some_but" onclick="Authority()">Add/Vote Institute</button>
+                    <button id="some_but" onclick="Authority()"> </button>
         </div>
         
     </div>

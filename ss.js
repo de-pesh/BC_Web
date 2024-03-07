@@ -119,9 +119,9 @@ var abi = [
     name: "Vote",
     outputs: [
       {
-        internalType: "uint256",
+        internalType: "bool",
         name: "",
-        type: "uint256",
+        type: "bool",
       },
     ],
     stateMutability: "nonpayable",
@@ -193,7 +193,7 @@ var abi = [
         type: "address",
       },
     ],
-    name: "getName",
+    name: "getNamee",
     outputs: [
       {
         internalType: "string",
@@ -256,7 +256,7 @@ var abi = [
     type: "function",
   },
 ];
-var address = "0xB5287125969F23959344De10ebf42C6b83De8db0";
+var address = "0x29E244EA1846704B2796bc6FE02BD7EE79DB0f5B";
 
 async function Verify() {
   var output = document.getElementById("balance");
@@ -571,13 +571,12 @@ async function FetchVoteData() {
       .then(function (result) {
         add = result;
       });
-    
+
     let text = document.createTextNode(name);
     let text2 = document.createTextNode(add);
     id.appendChild(text2);
     nm.appendChild(text);
     load.style.display = "none";
-
   } else {
     load.style.display = "none";
     output.style.display = "flex";
@@ -587,7 +586,6 @@ async function FetchVoteData() {
     output.style.boxShadow = "10px 10px 8px  #3a3a3a";
   }
 }
-
 
 async function Vote(v) {
   var output = document.getElementById("balance");
@@ -617,35 +615,46 @@ async function Vote(v) {
     } else {
       var status;
       await contract.methods
-          .Vote(v)
-          .send({ from: accounts[0] })
-          .then(function (result) {
-            status = result;
-          });
-      console.log(status)
-      console.log(typeof(status))
-      if (status == "1") {
-        
-            load.style.display = "none";
-            output.style.display = "flex";
-            output.textContent = "Voting ends, Institute is Added";
-            output.style.background = "rgba(136, 255, 0, 0.5)";
-            output.style.color = "rgb(33, 33, 33) ";
-            output.style.boxShadow = "10px 10px 8px  #3a3a3a";
-      } else if(!v) {
+        .Vote(v)
+        .send({ from: accounts[0] })
+        .then(function (result) {
+          status = result;
+        });
+      console.log(status);
+      // console.log(typeof status);
+      if (!v) {
         load.style.display = "none";
         output.style.display = "flex";
-        output.textContent = "Voting ends, Institute is not Trusted";
-        output.style.background = "rgba(136, 255, 0, 0.5)";
-        output.style.color = "white ";
+        output.textContent = "Voting ends, Institute is not trusted by all";
+        output.style.background = "rgb(255, 36, 36)";
+        output.style.color = "white";
         output.style.boxShadow = "10px 10px 8px  #3a3a3a";
       } else {
-        load.style.display = "none";
-        output.style.display = "flex";
-        output.textContent = "Thanks for voting, Wait for Other members";
-        output.style.background = "rgb(255, 36, 36)";
-        output.style.color = "white ";
-        output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+            await contract.methods
+          .getVotingStatus()
+          .call()
+          .then(function (result) {
+            if (result == true) {
+              load.style.display = "none";
+              output.style.display = "flex";
+              output.textContent = "Thanks for voting, Wait for other members";
+              output.style.background = "rgba(136, 255, 0, 0.5)";
+              output.style.color = "rgb(33, 33, 33) ";
+              output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+            } else {
+              load.style.display = "none";
+              output.style.display = "flex";
+              output.textContent = "Voting ends, Institute is trusted by All";
+              output.style.background = "rgba(136, 255, 0, 0.5)";
+              output.style.color = "rgb(33, 33, 33) ";
+              output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+            }
+          })
+          .catch(function (tx) {
+            console.log("transaction issue");
+          });
+
+        
       }
     }
   } else {
@@ -655,5 +664,55 @@ async function Vote(v) {
     output.style.background = "rgba(20, 20, 20, 0.5)";
     output.style.color = "rgb(255, 223, 223)";
     output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+  }
+}
+
+async function GetName() {
+  console.log("function called");
+  var ins = document.getElementById("data");
+  var but = document.getElementById("some_but");
+
+  var load = document.getElementById("loading");
+  load.style.display = "flex";
+
+  if (window.ethereum) {
+    var accounts = await ethereum.request({ method: "eth_requestAccounts" });
+    var web3 = new Web3(window.ethereum);
+    console.log(accounts[0]);
+    var contract = new web3.eth.Contract(abi, address);
+    var name;
+
+    await contract.methods
+      .getVotingStatus()
+      .call()
+      .then(function (result) {
+        if (result == true) {
+          let text = document.createTextNode("Vote for new Institute");
+          but.appendChild(text);
+        } else {
+          let text = document.createTextNode("Add new Institute");
+          but.appendChild(text);
+        }
+      })
+      .catch(function (tx) {
+        console.log("transaction issue");
+      });
+
+    await contract.methods
+      .getNamee(accounts[0])
+      .call()
+      .then(function (result) {
+        console.log(result);
+        let text = document.createTextNode(result);
+        ins.appendChild(text);
+      })
+      .catch(function (tx) {
+        console.log("transaction issue");
+      });
+
+    load.style.display = "none";
+  } else {
+    load.style.display = "none";
+    console.log("meta error");
   }
 }

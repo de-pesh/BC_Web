@@ -134,6 +134,7 @@ button:hover {
 #buttonArea{
     display: block;
     padding: 50px;
+
     width: auto;
     height: 253px;
     overflow-y: scroll;
@@ -199,5 +200,7 @@ button:hover {
   @keyframes spin{
     to{
         transform: rotate(360deg);
+        /* background-color: rgba(136, 255, 0, 0.5) green*/
+        color:rgba(136, 255, 0, 0.5)
     }
   } 
