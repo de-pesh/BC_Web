@@ -1,4 +1,4 @@
-// var abi = [
+// const abi = [
 //   {
 //     inputs: [
 //       {
@@ -161,6 +161,19 @@
 //   },
 //   {
 //     inputs: [],
+//     name: "getCertificates",
+//     outputs: [
+//       {
+//         internalType: "bytes32[]",
+//         name: "isrc",
+//         type: "bytes32[]",
+//       },
+//     ],
+//     stateMutability: "view",
+//     type: "function",
+//   },
+//   {
+//     inputs: [],
 //     name: "getKeys",
 //     outputs: [
 //       {
@@ -256,104 +269,46 @@
 //     type: "function",
 //   },
 // ];
-// var address = "0x29E244EA1846704B2796bc6FE02BD7EE79DB0f5B";
-
-async function sha256(message) {
-    // encode as UTF-8
-    const msgBuffer = new TextEncoder().encode(message);                    
-
-    // hash the message
-    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-
-    // convert ArrayBuffer to Array
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-
-    // convert bytes to hex string                  
-    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-    return hashHex;
-}
-
-async function Bloom() {
-  var output = document.getElementById("balance");
-  output.style.display = "none";
-
-  var load = document.getElementById("loading");
-  load.style.display = "flex";
-  if (window.ethereum) {
-    var accounts = await ethereum.request({ method: "eth_requestAccounts" });
-    var certificate = document.getElementById("cert_id").value;
-    var web3 = new Web3(window.ethereum);
-    var contract = new web3.eth.Contract(abi, address);
-    var validUser = false;
-    await contract.methods
-      .verifyAuthority(accounts[0])
-      .call()
-      .then(function (result) {
-        validUser = result;
-      });
-    if (validUser == false) {
-      load.style.display = "none";
-      output.style.display = "flex";
-      output.textContent = "You are not authorised for this action";
-      output.style.background = "rgb(255, 36, 36)";
-      output.style.color = "white ";
-      output.style.boxShadow = "10px 10px 8px  #3a3a3a";
-    } else {
-      var status = false;
-      await contract.methods
-        .verifyCertificate(certificate)
-        .call()
-        .then(function (result) {
-          status = result;
-        });
-      console.log(status);
-      if (status == false) {
-        await contract.methods
-          .addCertificate(certificate)
-          .send({ from: accounts[0] })
-          .then(function () {
-            load.style.display = "none";
-            output.style.display = "flex";
-            output.textContent = "The document is Added";
-            output.style.background = "rgba(136, 255, 0, 0.5)";
-            output.style.color = "rgb(33, 33, 33) ";
-            output.style.boxShadow = "10px 10px 8px  #3a3a3a";
-          })
-          .catch(function (error) {
-            load.style.display = "none";
-            output.style.display = "flex";
-            output.textContent = "Transaction Failed";
-            output.style.background = "rgb(255, 36, 36)";
-            output.style.color = "white ";
-            output.style.boxShadow = "10px 10px 8px  #3a3a3a";
-          });
-      } else {
-        load.style.display = "none";
-        output.style.display = "flex";
-        output.textContent = "The document already exists";
-        output.style.background = "rgb(255, 36, 36)";
-        output.style.color = "white ";
-        output.style.boxShadow = "10px 10px 8px  #3a3a3a";
-      }
-    }
-  } else {
-    load.style.display = "none";
-    output.style.display = "flex";
-    output.textContent = "Please check metamask";
-    output.style.background = "rgba(20, 20, 20, 0.5)";
-    output.style.color = "rgb(255, 223, 223)";
-    output.style.boxShadow = "10px 10px 8px  #3a3a3a";
+// const address = "0x925D1D8281Cd588C9e04dD638715Fe0C28EAF6Ec";
+let web3 = null;
+let contract = null;
+async function Verify() {
+  if (!window.ethereum) {
+    console.log("mm");
+    return; // Early exit if no Ethereum provider
   }
+  if (!web3) {
+    web3 = new Web3(window.ethereum);
+  }
+  if (!contract) {
+    contract = new web3.eth.Contract(abi, address);
+  }
+  try {
+    // Define certificate (modify as needed)
+    const certificate = "11111111";
 
-  var certificate = document.getElementById("cert_id").value;
-  
-  var sizeoffilter = 1000000;
-  var x = await sha256(certificate);
-  var x = "0x" + x;
-  console.log(typeof(x));
-  console.log((BigInt(x) % BigInt(sizeoffilter)))
-  var remaining = Number(BigInt(x) % BigInt(sizeoffilter));
-  localStorage.setItem(remaining, true);
+    // Call verifyCertificate method using async/await for sequential execution
+    const result = await contract.methods.verifyCertificate(certificate).call();
 
-  // console.log(localStorage.getItem("lastname"));
+    // Log result
+    console.log(result ? "V" : "NV"); // Concise output based on truthy/falsy value
+  } catch (tx) {
+    // Handle potential errors during verification
+    console.log("tx:", tx); // Log the error object for debugging
+  }
+  return 1;
+
 }
+
+async function runBenchmark(x) {
+  const startTime = performance.now();
+
+  // Run your function multiple times to get a better measurement
+  for (let i = 0; i < x; i++) {
+     await Verify();
+  }
+  const endTime = performance.now();
+  const executionTime = endTime - startTime;
+  console.log("Execution time:", executionTime, "milliseconds");
+}
+
