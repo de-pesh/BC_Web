@@ -1,6 +1,6 @@
 async function sha256(message) {
   // encode as UTF-8
-  const msgBuffer = new TextEncoder().encode(message);                    
+  const msgBuffer = new TextEncoder().encode(message);
 
   // hash the message
   const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
@@ -20,9 +20,9 @@ async function Verifyyy() {
   var load = document.getElementById("loading");
   load.style.display = "flex";
   // if (window.ethereum) {
-  //var certificate = document.getElementById("cert_id").value;
+  var certificate = document.getElementById("cert_id").value;
   // var certificate = ((Math.random() * 100000).toString() + "xxxx");
-  var certificate = (11111111).toString()
+  //var certificate = (11111111).toString()
   var sizeoffilter = 1000000;
   var x = await sha256(certificate);
   var x = "0x" + x;
@@ -30,7 +30,7 @@ async function Verifyyy() {
   // console.log(BigInt(x) % BigInt(sizeoffilter));
   var remaining = Number(BigInt(x) % BigInt(sizeoffilter));
   var valid = localStorage.getItem(remaining);
-  if (!valid) {
+  if (false) {
     load.style.display = "none";
     output.style.display = "flex";
     output.textContent = "The document is not Verified (Request Filtered) ";
@@ -38,7 +38,7 @@ async function Verifyyy() {
     output.style.color = "white ";
     output.style.boxShadow = "10px 10px 8px  #3a3a3a";
   } else {
-    
+
     //   var web3 = new Web3(window.ethereum);
     const web3 = new Web3(
       "https://sepolia.infura.io/v3/efc3e3e727fe491798d7f7e58776600f"
@@ -52,7 +52,7 @@ async function Verifyyy() {
       if (!error) {
         console.log("yes");
         if (result == true) {
-          
+
           load.style.display = "none";
           output.style.display = "flex";
           output.textContent = "The document is Verified";
@@ -81,7 +81,7 @@ function runBenchmark(x) {
 
   // Run your function multiple times to get a better measurement
   for (let i = 0; i < x; i++) {
-      Verifyyy();
+    Verifyyy();
   }
 
   const endTime = performance.now();
