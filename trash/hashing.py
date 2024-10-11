@@ -7,3 +7,5 @@ def Hashing(file):
         h = hash.hexdigest()
         return h
     return 0
+
+#hashing a file
